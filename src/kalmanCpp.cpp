@@ -11,7 +11,7 @@ inline arma::mat symmat(const arma::mat& P) {
 
 //' @export
 // [[Rcpp::export]]
-List kalmanCpp(const arma::mat& X, const arma::vec& a0_0, const arma::mat& P0_0, const arma::mat& A,
+List kalmanCpp(const arma::mat& X, const arma::rowvec& a0_0, const arma::mat& P0_0, const arma::mat& A,
                const arma::mat& Lambda, const arma::mat& Sig_e, const arma::mat& Sig_u) {
 
   //  Kalman Filter and Smoother equations from Shumway and Stoffer (1982)
@@ -57,12 +57,12 @@ List kalmanCpp(const arma::mat& X, const arma::vec& a0_0, const arma::mat& P0_0,
   arma::cube Pt_n(k, k, n + 1, arma::fill::zeros);
   arma::cube Pt_tlag_n(k, k, n, arma::fill::zeros);
 
-  at_t.col(0) = a0_0;   // initial state mean at t=0
-  Pt_t.slice(0) = P0_0; // initial state covariance at t=0
+  at_t.col(0) = a0_0.t(); // initial state mean at t=0
+  Pt_t.slice(0) = P0_0;   // initial state covariance at t=0
 
   const arma::mat y = X.t();  // work with p x n matrix y
 
-  double logl = 0;      // log-likelihood required for convergence check in EM
+  double logl = 0;        // log-likelihood required for convergence check in EM
 
   // Kalman filter loop for t = 1,...,n
   arma::mat Lambda_t;

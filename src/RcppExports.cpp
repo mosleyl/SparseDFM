@@ -24,13 +24,13 @@ BEGIN_RCPP
 END_RCPP
 }
 // kalmanCpp
-List kalmanCpp(const arma::mat& X, const arma::vec& a0_0, const arma::mat& P0_0, const arma::mat& A, const arma::mat& Lambda, const arma::mat& Sig_e, const arma::mat& Sig_u);
+List kalmanCpp(const arma::mat& X, const arma::rowvec& a0_0, const arma::mat& P0_0, const arma::mat& A, const arma::mat& Lambda, const arma::mat& Sig_e, const arma::mat& Sig_u);
 RcppExport SEXP _SparseDFM_kalmanCpp(SEXP XSEXP, SEXP a0_0SEXP, SEXP P0_0SEXP, SEXP ASEXP, SEXP LambdaSEXP, SEXP Sig_eSEXP, SEXP Sig_uSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
-    Rcpp::traits::input_parameter< const arma::vec& >::type a0_0(a0_0SEXP);
+    Rcpp::traits::input_parameter< const arma::rowvec& >::type a0_0(a0_0SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type P0_0(P0_0SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type A(ASEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type Lambda(LambdaSEXP);
@@ -41,13 +41,13 @@ BEGIN_RCPP
 END_RCPP
 }
 // kalmanUnivariate
-List kalmanUnivariate(const arma::mat& X, const arma::vec& a0_0, const arma::mat& P0_0, const arma::mat& A, const arma::mat& Lambda, const arma::mat& Sig_e, const arma::mat& Sig_u);
+List kalmanUnivariate(const arma::mat& X, const arma::rowvec& a0_0, const arma::mat& P0_0, const arma::mat& A, const arma::mat& Lambda, const arma::mat& Sig_e, const arma::mat& Sig_u);
 RcppExport SEXP _SparseDFM_kalmanUnivariate(SEXP XSEXP, SEXP a0_0SEXP, SEXP P0_0SEXP, SEXP ASEXP, SEXP LambdaSEXP, SEXP Sig_eSEXP, SEXP Sig_uSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
-    Rcpp::traits::input_parameter< const arma::vec& >::type a0_0(a0_0SEXP);
+    Rcpp::traits::input_parameter< const arma::rowvec& >::type a0_0(a0_0SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type P0_0(P0_0SEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type A(ASEXP);
     Rcpp::traits::input_parameter< const arma::mat& >::type Lambda(LambdaSEXP);

@@ -116,7 +116,7 @@ List kalmanUnivariate(const arma::mat& X, const arma::mat& a0_0, const arma::mat
   const arma::mat Ik = arma::eye(k, k);
   for (arma::uword t = n - 1; t != arma::uword(-1); --t) {
     for (arma::uword i = p - 1; i != arma::uword(-1); --i) {
-      const arma::vec Zt_i = Lambda.row(i);
+      const arma::rowvec Zt_i = Lambda.row(i);
       const double inv_Ft_i = inv_Ft(i, t);
       const arma::vec Kt_i = Kt.slice(t).col(i);
       const arma::mat Lt_i = Ik - Kt_i * Zt_i;

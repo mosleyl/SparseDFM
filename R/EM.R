@@ -88,7 +88,7 @@ EM <- function(X, a0_0, P0_0, A.tilde, Lambda.tilde, Sigma.eta, Sigma.u.tilde, a
 
       ## Initial state mean and covariance update
 
-      a0_0 = as.matrix(at_n[,1])
+      a0_0 = at_n[,1]
       P_F = as.matrix(Pt_n[1:r,1:r,1])
       P_E = diag(diag(as.matrix(Pt_n[(r+1):k,(r+1):k,1])))
       P0_0 = blkdiag(P_F, P_E)
@@ -242,7 +242,7 @@ EM <- function(X, a0_0, P0_0, A.tilde, Lambda.tilde, Sigma.eta, Sigma.u.tilde, a
 
       ## Initial state mean and covariance update
 
-      a0_0 = as.matrix(at_n[,1])
+      a0_0 = at_n[,1]
       P0_0 = as.matrix(Pt_n[,,1])
 
       ## State transition equation parameter updates: A.tilde and Sigma.u.tilde

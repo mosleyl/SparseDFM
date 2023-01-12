@@ -73,10 +73,10 @@ initPCA <- function(X,r,err='AR1') {
 
     ## Initial mean and variance of state
     #
-    # a0_0 is 1x(r+p) mean of state at t=0
+    # a0_0 is (r+p)x1 mean of state at t=0
     # P0_0 is (r+p)x(r+p) variance of state at t=0
 
-      a0_0 = rep(0, r+p)
+      a0_0 = as.matrix(rep(0, r+p))
       P_F = matrix(corpcor::pseudoinverse(diag(r*r)- kronecker(A,A)) %*% matrix(Sigma_u, ncol = 1), r, r)
       P_eps = diag(1 / diag(diag(dim(Phi)[1]) - Phi ^ 2)) * Sigma_epsilon
       P0_0 = blkdiag(P_F, P_eps) # covariance of F and e initialised to be 0
@@ -105,10 +105,10 @@ initPCA <- function(X,r,err='AR1') {
 
     ## Initial mean and variance of state
     #
-    # a0_0 is 1xr mean of state at t=0
+    # a0_0 is rx1 mean of state at t=0
     # P0_0 is rxr variance of state at t=0
 
-      a0_0 = rep(0, r)
+      a0_0 = as.matrix(rep(0, r))
       P0_0 = matrix(corpcor::pseudoinverse(diag(r*r)- kronecker(A.tilde,A.tilde)) %*% matrix(Sigma.u.tilde, ncol = 1), r, r)
 
   }
